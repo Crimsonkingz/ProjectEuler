@@ -80,8 +80,7 @@ function compareRows(array){
 				compared.push(number);
 			}
 
-		// Find the product of the current array
-		console.log(compared);		
+		// Find the product of the current array	
 		productCompare(compared);
 		}
 	
@@ -110,7 +109,7 @@ function compareCols(array){
 			}
 
 		// Find the product of the current array
-		console.log(compared);		
+			
 		productCompare(compared);
 		}
 	
@@ -135,8 +134,9 @@ function compareDiags(array){
 			// Add the desired number of digits to compare to the array
 			for (var col = start; col < (digitsToCompare + start); col++) {
 
-				var number =  array[row][col];				
+				var number =  array[currentRow][row];				
 				compared.push(number);
+				
 			}
 
 		// Find the product of the current array
@@ -165,8 +165,8 @@ function productCompare(array) {
 }
 
 
-compareRows(longArray);
-compareCols(longArray);
+// compareRows(longArray);
+// compareCols(longArray);
 compareDiags(longArray);
 var result = largestProduct;
 
