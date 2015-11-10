@@ -28,7 +28,7 @@
 
 
 var html = "";
-
+var largestProductSource;
 var largestSoFar = 0;
 
 var longArray = [
@@ -82,7 +82,7 @@ function compareRows(array){
 
 		// Find the product of the current array	
 		console.log(compared);
-		productCompare(compared);
+		productCompare(compared, "Rows");
 		}
 	
 	}
@@ -111,7 +111,7 @@ function compareCols(array){
 
 		// Find the product of the current array
 		console.log(compared);
-		productCompare(compared);
+		productCompare(compared, "Columns");
 		}
 	
 	}
@@ -134,7 +134,7 @@ function compareDiagsLeftToRight(array){
 		}
 		// Find the product of the current array
 		console.log(compared);
-		productCompare(compared);
+		productCompare(compared, "DiagLeftToRight");
 		}
 	}
 
@@ -156,7 +156,7 @@ function compareDiagsRightToLeft(array){
 		}
 		// Find the product of the current array
 		console.log(compared);
-		productCompare(compared);
+		productCompare(compared, "DiagRightToLeft");
 		}
 	}
 
@@ -167,7 +167,7 @@ function compareDiagsRightToLeft(array){
 
 // Multiply each element of the array containing the section of the long number
 // If the resulting product is the largest so far then store it
-function productCompare(array) {
+function productCompare(array, source) {
 	
 	var product = 1;
 
@@ -177,6 +177,7 @@ function productCompare(array) {
 
 	if (product > largestProduct) {
 		largestProduct = product;
+		largestProductSource = source;
 	}
 }
 
@@ -186,7 +187,7 @@ compareCols(longArray);
 compareDiagsLeftToRight(longArray);
 compareDiagsRightToLeft(longArray);
 var result = largestProduct;
-
+console.log(largestProductSource)
 
 
 
