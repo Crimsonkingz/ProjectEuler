@@ -140,6 +140,30 @@ function compareDiagsLeftToRight(array){
 
 }
 
+// For going through a 2D array by diagonals top right to  bottom left, by scanning across left to right by rows
+
+function compareDiagsRightToLeft(array){
+
+	//Go through each row, stopping before there are not enough elements in the diagonally across rows
+	for (var row = 0; row < array.length - digitsToCompare + 1; row++) {
+		// Go through the elements in the current row and rows down by the number of digits
+		for (var col = digitsToCompare-1; col < array[row].length; col++) {
+		// Clear the comparison array
+		compared.length = 0;
+		for (var i = 0; i < digitsToCompare; i++) {
+			var number = array[row+i][col-i];
+			compared.push(number);
+		}
+		// Find the product of the current array
+		console.log(compared);
+		productCompare(compared);
+		}
+	}
+
+}
+
+
+
 
 // Multiply each element of the array containing the section of the long number
 // If the resulting product is the largest so far then store it
@@ -158,8 +182,9 @@ function productCompare(array) {
 
 
 compareRows(longArray);
-// compareCols(longArray);
-// compareDiagsLeftToRight(longArray);
+compareCols(longArray);
+compareDiagsLeftToRight(longArray);
+compareDiagsRightToLeft(longArray);
 var result = largestProduct;
 
 
