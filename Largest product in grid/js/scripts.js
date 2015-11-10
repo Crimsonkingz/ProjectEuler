@@ -81,6 +81,7 @@ function compareRows(array){
 			}
 
 		// Find the product of the current array	
+		console.log(compared);
 		productCompare(compared);
 		}
 	
@@ -109,7 +110,7 @@ function compareCols(array){
 			}
 
 		// Find the product of the current array
-			
+		console.log(compared);
 		productCompare(compared);
 		}
 	
@@ -119,31 +120,22 @@ function compareCols(array){
 
 // For going through a 2D array by diagonals
 //FINISH THIS
-function compareDiags(array){
+function compareDiagsLeftToRight(array){
 
-	//Go through each row
-	for (var row = 0; row < array.length; row++) {
-		
-		
-		// Go through each element of the array in sequence, add one to the end due to zero indexing
-		for (var start = 0; start < array[row].length - digitsToCompare + 1; start++){
-			
-			// Clear the comparison array
-			compared.length = 0;
-
-			// Add the desired number of digits to compare to the array
-			for (var col = start; col < (digitsToCompare + start); col++) {
-
-				var number =  array[currentRow][row];				
-				compared.push(number);
-				
-			}
-
+	//Go through each row, stopping before there are not enough elements in the diagonally across rows
+	for (var row = 0; row < array.length - digitsToCompare + 1; row++) {
+		// Go through the elements in the current row and rows down by the number of digits
+		for (var col = 0; col < array[row].length - digitsToCompare + 1; col++) {
+		// Clear the comparison array
+		compared.length = 0;
+		for (var i = 0; i < digitsToCompare; i++) {
+			var number = array[row+i][col+i];
+			compared.push(number);
+		}
 		// Find the product of the current array
-		console.log(compared);		
+		console.log(compared);
 		productCompare(compared);
 		}
-	
 	}
 
 }
@@ -165,9 +157,9 @@ function productCompare(array) {
 }
 
 
-// compareRows(longArray);
+compareRows(longArray);
 // compareCols(longArray);
-compareDiags(longArray);
+// compareDiagsLeftToRight(longArray);
 var result = largestProduct;
 
 
