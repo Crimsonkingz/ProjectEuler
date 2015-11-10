@@ -118,8 +118,8 @@ function compareCols(array){
 
 }
 
-// For going through a 2D array by diagonals
-//FINISH THIS
+// For going through a 2D array by diagonals top left to  bottom right, by scanning across left to right by rows
+
 function compareDiagsLeftToRight(array){
 
 	//Go through each row, stopping before there are not enough elements in the diagonally across rows
